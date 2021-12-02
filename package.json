@@ -21,7 +21,6 @@
 		"dist:m": "npm run build && npx electron-builder -m --x64",
 		"dist:l": "npm run build && npx electron-builder -l --x64",
 		"postinstall": "npx electron-builder install-app-deps",
-		"publish":"npx electron-builder --publish onTagOrDraft",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {

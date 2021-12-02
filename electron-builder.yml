@@ -48,7 +48,7 @@ nsis:
 
 # Linux config
 linux:
-  target: [deb,rpm,snap,AppImage]
+  target: [deb,AppImage]
   icon: "build/electron-app/assets/icon.png"
   # category : https://specifications.freedesktop.org/menu-spec/latest/apa.html#main-category-registry
   category: "Utility"

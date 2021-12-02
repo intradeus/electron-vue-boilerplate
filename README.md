@@ -1,9 +1,10 @@
+
 # electron-vue-boilerplate
 
 [![license](https://img.shields.io/github/license/intradeus/electron-vue-boilerplate.svg?style=flat)][mit]
 
 Simple boilerplate for building [Vue](https://github.com/vuejs/vue) app with [Electron](https://github.com/electron/electron) and [Webpack](https://github.com/webpack/webpack).
-
+Forked from [Oliver Findl's electron-vue-boilerplate](https://github.com/oliverfindl/electron-vue-boilerplate)
 ---
 
 ## Whats under the hood?
