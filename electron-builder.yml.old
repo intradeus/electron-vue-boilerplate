@@ -1,0 +1,67 @@
+directories:
+  buildResources: build
+  output: release
+appId:  com.electron.electron-vue-boilerplate
+productName: Electron Vue Boilerplate
+# forceCodeSigning Boolean - Whether to fail if app will be not code signed.
+forceCodeSigning: false
+artifactName: "${productName}-${os}-${version}.${ext}"
+files:
+  - "build/**/*"
+  - "!node_modules${/*}"
+# asar : Package electron code into a asar archive. Set to false to debug issues.
+asar: true
+compression: maximum
+# npmRebuild : Boolean - Whether to rebuild native dependencies before starting to package the app.
+npmRebuild: true
+
+# MacOS config : check https://www.electron.build/configuration/mac
+mac:
+  # Category: https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW8
+  category: public.app-category.utilities
+  target: [dmg]
+  icon: "build/electron-app/assets/icon.png"
+
+# .dmg config : check https://www.electron.build/configuration/dmg
+dmg:
+  icon: "build/electron-app/assets/icon.png"
+  iconSize: 96
+  contents:
+    - x: 650
+      y: 230
+      type: link
+      path: /Applications
+    - x: 350
+      y: 230
+      type: file
+
+# Windows config : check https://www.electron.build/configuration/win
+win:
+  target: [nsis]
+  icon: "build/electron-app/assets/icon.png"
+
+# NSIS config : check https://www.electron.build/configuration/nsis
+nsis:
+  installerIcon: "build/electron-app/assets/icon.png"
+  uninstallerIcon: "build/electron-app/assets/icon.png"
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+
+# Linux config
+linux:
+  target: [AppImage]
+  icon: "build/electron-app/assets/icon.png"
+  # category : https://specifications.freedesktop.org/menu-spec/latest/apa.html#main-category-registry
+  category: "Utility"
+
+# Publish configs https://www.electron.build/configuration/publish
+# Add "token" and "private" if you want to use private repo auto-updates features https://www.electron.build/configuration/publish#githuboptions
+# How to read from .env file in electron-builder yaml config file https://stackoverflow.com/questions/63001117/how-to-read-from-env-file-in-electron-builder-yaml-config-file
+publish:
+  - provider: github
+    url: https://github.com/intradeus/electron-vue-boilerplate
+    vPrefixedTagName: true
+    releaseType: draft
+
+
+
