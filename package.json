@@ -43,7 +43,10 @@
 		"boilerplate",
 		"electron-vue-boilerplate"
 	],
-	"author": "intradeus",
+	"author": {
+		"name" : "intradeus",
+		"email" : "1ntr4d3us@gmail.com"
+	},
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/intradeus/electron-vue-boilerplate/issues"

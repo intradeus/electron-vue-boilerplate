@@ -19,6 +19,7 @@ npmRebuild: true
 mac:
   # Category: https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW8
   category: public.app-category.utilities
+  # target file to release. If you want to add more, don't forget to modify .github/workflows/build.yml accordingly
   target: [dmg]
   icon: "build/electron-app/assets/icon.png"
 
@@ -37,6 +38,7 @@ dmg:
 
 # Windows config : check https://www.electron.build/configuration/win
 win:
+  # target file to release. If you want to add more, don't forget to modify .github/workflows/build.yml accordingly
   target: [nsis, msi]
   icon: "build/electron-app/assets/icon.png"
 
@@ -48,6 +50,7 @@ nsis:
 
 # Linux config
 linux:
+  # target file to release. If you want to add more, don't forget to modify .github/workflows/build.yml accordingly
   target: [deb,AppImage]
   icon: "build/electron-app/assets/icon.png"
   # category : https://specifications.freedesktop.org/menu-spec/latest/apa.html#main-category-registry
