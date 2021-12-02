@@ -17,9 +17,9 @@
 		"pack": "npm run build && npx electron-builder --dir",
 		"dist": "npm run build && npx electron-builder",
 		"dist:all": "npm run build && npx electron-builder -wml --x64",
-		"dist:w": "npm run build && npx electron-builder -w --x64",
-		"dist:m": "npm run build && npx electron-builder -m --x64",
-		"dist:l": "npm run build && npx electron-builder -l --x64",
+		"dist:w": "npm run build && npx electron-builder -w --x64 --publish never",
+		"dist:m": "npm run build && npx electron-builder -m --x64 --publish never",
+		"dist:l": "npm run build && npx electron-builder -l --x64 --publish never",
 		"postinstall": "npx electron-builder install-app-deps",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
