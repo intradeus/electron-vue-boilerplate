@@ -1,4 +1,6 @@
-build
-release
+release/*
+build/*
+!build/.gitkeep 
+!release/.gitkeep
 node_modules
 .DS_Stores

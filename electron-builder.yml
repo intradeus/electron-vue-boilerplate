@@ -37,19 +37,18 @@ dmg:
 
 # Windows config : check https://www.electron.build/configuration/win
 win:
-  target: [nsis]
+  target: [nsis, msi]
   icon: "build/electron-app/assets/icon.png"
 
 # NSIS config : check https://www.electron.build/configuration/nsis
 nsis:
-  installerIcon: "build/electron-app/assets/icon.png"
-  uninstallerIcon: "build/electron-app/assets/icon.png"
+  oneClick: false
   allowToChangeInstallationDirectory: true
   createDesktopShortcut: true
 
 # Linux config
 linux:
-  target: [AppImage]
+  target: [deb,rpm,snap,AppImage]
   icon: "build/electron-app/assets/icon.png"
   # category : https://specifications.freedesktop.org/menu-spec/latest/apa.html#main-category-registry
   category: "Utility"
@@ -59,9 +58,8 @@ linux:
 # How to read from .env file in electron-builder yaml config file https://stackoverflow.com/questions/63001117/how-to-read-from-env-file-in-electron-builder-yaml-config-file
 publish:
   - provider: github
-    url: https://github.com/intradeus/electron-vue-boilerplate
+    repo: electron-vue-boilerplate
+    host: github.com
+    owner: intradeus
     vPrefixedTagName: true
     releaseType: draft
-
-
-
