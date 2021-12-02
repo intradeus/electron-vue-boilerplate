@@ -52,14 +52,3 @@ linux:
   icon: "build/electron-app/assets/icon.png"
   # category : https://specifications.freedesktop.org/menu-spec/latest/apa.html#main-category-registry
   category: "Utility"
-
-# Publish configs https://www.electron.build/configuration/publish
-# Add "token" and "private" if you want to use private repo auto-updates features https://www.electron.build/configuration/publish#githuboptions
-# How to read from .env file in electron-builder yaml config file https://stackoverflow.com/questions/63001117/how-to-read-from-env-file-in-electron-builder-yaml-config-file
-publish:
-  - provider: github
-    repo: electron-vue-boilerplate
-    host: github.com
-    owner: intradeus
-    vPrefixedTagName: true
-    releaseType: draft
