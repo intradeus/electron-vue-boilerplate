@@ -14,7 +14,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          draft: true
+          draft: false
+          prerelease: true
 
   build_on_mac:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -36,14 +37,14 @@ jobs:
         run: npm run dist:m
 
       - name: display folder
-        run: cd build && ls && cd ..
+        run: cd release && ls && cd ..
 
       - name: Upload mac assets
         uses: alexellis/upload-assets@0.2.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          asset_paths: '["./build/*.dmg","./build/latest.yml"]'
+          asset_paths: '["./release/*.dmg","./release/latest.yml"]'
 
   build_on_win:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -65,14 +66,14 @@ jobs:
         run: npm run dist:w
 
       - name: display folder
-        run: cd build && dir && cd ..
+        run: cd release && dir && cd ..
 
       - name: Upload windows assets
         uses: alexellis/upload-assets@0.2.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          asset_paths: '["./build/*.exe","./build/*.msi"]'
+          asset_paths: '["./release/*.exe","./release/*.msi"]'
 
 
   build_on_linux:
@@ -95,11 +96,11 @@ jobs:
         run: npm run dist:l
 
       - name: display folder
-        run: cd build && ls && cd ..
+        run: cd release && ls && cd ..
 
       - name: Upload linux assets
         uses: alexellis/upload-assets@0.2.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          asset_paths: '["./build/*.AppImage","./build/*.deb"]'
+          asset_paths: '["./release/*.AppImage","./release/*.deb"]'
