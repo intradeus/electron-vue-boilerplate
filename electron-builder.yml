@@ -27,14 +27,6 @@ mac:
 dmg:
   icon: "build/electron-app/assets/icon.png"
   iconSize: 96
-  contents:
-    - x: 650
-      y: 230
-      type: link
-      path: /Applications
-    - x: 350
-      y: 230
-      type: file
 
 # Windows config : check https://www.electron.build/configuration/win
 win:
