@@ -38,8 +38,8 @@ jobs:
 
       - name: display folder
         run: cd release && ls && cd ..
-        
-      -name: rename latest-mal.yml to latest.yml
+
+      - name: rename latest-mac.yml to latest.yml
         run: cd release && cp latest-mac.yml latest.yml && cd ..
 
       - name: Upload mac assets
