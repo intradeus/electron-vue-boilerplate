@@ -43,8 +43,8 @@ jobs:
         uses: Roang-zero1/github-upload-release-artifacts-action@master
         with:
           args:
-          - build/*.dmg
-          - build/latest.yml
+            - 'build/*.dmg'
+            - 'build/latest.yml'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -74,8 +74,8 @@ jobs:
         uses: Roang-zero1/github-upload-release-artifacts-action@master
         with:
           args:
-          - build/*.exe
-          - build/*.msi
+            - 'build/*.exe'
+            - 'build/*.msi'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -105,7 +105,7 @@ jobs:
         uses: Roang-zero1/github-upload-release-artifacts-action@master
         with:
           args:
-          - build/*.AppImage
-          - build/*.deb
+            - 'build/*.AppImage'
+            - 'build/*.deb'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
