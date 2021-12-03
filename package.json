@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"name": "electron-vue-boilerplate",
-	"version": "1.0.7-beta",
+	"version": "1.0.8-beta",
 	"description": "Simple boilerplate for building Vue app with Electron and Webpack.",
 	"main": "build/electron-app/main.js",
 	"scripts": {
