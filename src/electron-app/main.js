@@ -1,7 +1,7 @@
 "use strict";
 
 // Modules to control application life and create native browser window.
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain, shell } = require("electron");
 import installExtension, {VUEJS3_DEVTOOLS} from "electron-devtools-installer";
 const { resolve } = require("path");
 
@@ -61,6 +61,8 @@ app.on("activate", () => BrowserWindow.getAllWindows().length === 0 && createWin
 // explicitly with Cmd + Q.
 app.on("window-all-closed", () => process.platform !== "darwin" && app.quit());
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
 
+ipcMain.on("open-url-default-browser", (event, content) =>{
+	console.log("URL received. Opening web browser to ", content);
+	shell.openExternal(content);
+});

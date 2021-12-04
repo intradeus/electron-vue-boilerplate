@@ -8,7 +8,11 @@ import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 
-createApp(App).use(router).use(store).mount("#app");
+const app = createApp(App);
+app.use(router);
+app.use(store);
+app.provide("ipcRenderer", window.require("electron").ipcRenderer);
+app.mount("#app");
 
 // Receive data sent from Electron through ipcRenderer
 // See electron-app/main.js to see how app-version is sent

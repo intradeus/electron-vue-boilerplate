@@ -5,6 +5,7 @@
 			<router-link to="/about">About</router-link>
 		</div>
 		<router-view />
+		<Updater></Updater>
 		<div class="bottom">
 			<span>Version {{version}}</span>
 		</div>
@@ -15,8 +16,12 @@
 "use strict";
 import { useStore } from "vuex";
 import { computed }  from "vue";
+import Updater from "./components/Updater.vue";
 
 export default {
+	components: {
+		Updater	
+	},
 	setup() {
 		const store = useStore();
 

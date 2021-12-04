@@ -147,3 +147,7 @@ $ npm run postinstall
 
 ## TODO 
 - add database (rxbd)
+- add updater notification
+## Tips :
+
+https://github.com/vue3/vue3-News/blob/master/asset/Vue3-CheatSheet02.jpeg
