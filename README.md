@@ -117,8 +117,6 @@ $ npm run postinstall
 │       ├── index.html              # main index file for Vue app
 │       ├── index.scss              # main style file for Vue app
 │       └── main.js                 # main Vue app file
-├── .eslintrc-electron-app.js       # Eslint config for src/electron-app
-├── .eslintrc-vue-app.js            # Eslint config for src/vue-app
 ├── electron-builder.yml            # Electron builder config for releases
 ├── extract_linux.sh                # Linux post-dist script
 ├── LICENCE                         # MIT licence
@@ -145,3 +143,10 @@ $ npm run postinstall
 2) Commit that change : git commit -am v1.2.3
 3) Tag your commit : git tag v1.2.3
 4) Push your commit and your tag : git push && git push --tags
+
+
+## TODO 
+- make console.log work
+- make mounted/created work
+- add apk to linux build
+- add database (rxbd)

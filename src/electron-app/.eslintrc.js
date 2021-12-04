@@ -1,25 +1,21 @@
 "use strict";
 
 module.exports = {
+	"root":true,
 	"env": {
-		"browser": true,
+		"commonjs": true,
 		"es2021": true,
-		'node': true
+		"node": true
 	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:vue/vue3-essential"
-	],
-	"parser": "vue-eslint-parser",
+	"extends": "eslint:recommended",
+	"globals": {
+		"PRODUCTION_BUILD": "readonly"
+	},
+	"parser": "@babel/eslint-parser",
 	"parserOptions": {
 		"ecmaVersion": 12,
-		"sourceType": "module",
-		"parser": "@babel/eslint-parser",
 		"requireConfigFile": false
 	},
-	"plugins": [
-		"vue"
-	],
 	"rules": {
 		"indent": [
 			"error",
