@@ -8,8 +8,8 @@ const { resolve } = require("path");
 const createWindow = async () => {
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
-		width: 720,
-		height: 540,
+		width: 1200,
+		height: 840,
 		icon: resolve(__dirname, "./assets/icon.png"),
 		webPreferences: {
 			contextIsolation: false,

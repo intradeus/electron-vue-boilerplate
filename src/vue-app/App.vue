@@ -1,43 +1,28 @@
 <template>
 	<div class="main-container">
 		<div id="nav">
-			<router-link @click.prevent="test()" to="/">Home</router-link> |
+			<router-link to="/">Home</router-link> |
 			<router-link to="/about">About</router-link>
-			<span>hey : {{pretty}}</span>
 		</div>
 		<router-view />
 		<div class="bottom">
-			<span>Version #{{$store.state.appVersion}}</span>
+			<span>Version {{version}}</span>
 		</div>
 	</div>
 </template>
 
 <script>
 "use strict";
+import { useStore } from "vuex";
+import { computed }  from "vue";
 
 export default {
-	components: {
+	setup() {
+		const store = useStore();
 
-	},
-	data() {
 		return {
-			pretty: "halo"
+			version: computed(() => store.state.appVersion)	
 		};
-	},
-	mounted() {
-		this.prettye = "halo";
-	},
-	computed: {
-		versionValue() { 
-			console.log("test");
-			console.log(this.$store.state.appVersion);
-			return this.$store.state.appVersion; 
-		}
-	},
-	methods: {
-		test() {
-			console.log("test");
-		}
 	}
 };
 </script>

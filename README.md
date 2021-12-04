@@ -146,7 +146,4 @@ $ npm run postinstall
 
 
 ## TODO 
-- make console.log work
-- make mounted/created work
-- add apk to linux build
 - add database (rxbd)
