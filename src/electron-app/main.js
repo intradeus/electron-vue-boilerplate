@@ -2,13 +2,14 @@
 
 // Modules to control application life and create native browser window.
 const { app, BrowserWindow } = require("electron");
+import installExtension, {VUEJS3_DEVTOOLS} from "electron-devtools-installer";
 const { resolve } = require("path");
 
-const createWindow = () => {
+const createWindow = async () => {
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
-		width: 720,
-		height: 540,
+		width: 1200,
+		height: 840,
 		icon: resolve(__dirname, "./assets/icon.png"),
 		webPreferences: {
 			contextIsolation: false,
@@ -17,23 +18,39 @@ const createWindow = () => {
 	});
 
 	// Remove menu from browser window.
-	mainWindow.setMenu(null);
+	//mainWindow.setMenu(null);
 
+	console.log("Running app version : ", app.getVersion());
 	// Load the index.html of the app.
+
+	mainWindow.webContents.on("dom-ready", () => {
+		console.log(`Trying to send app version to renderer: ${app.getVersion()}`);
+		mainWindow.webContents.send("app-version", app.getVersion());
+	});
+
 	mainWindow.loadURL(!PRODUCTION_BUILD ? " http://localhost:8080/index.html" : ("file://" + resolve(__dirname, "../vue-app/index.html")));
 
 	// Open the DevTools.
 	if(!PRODUCTION_BUILD) {
+		try {
+			await installExtension(VUEJS3_DEVTOOLS, {
+				loadExtensionOptions: {
+					allowFileAccess: true,
+				},
+			});
+		} catch (e) {
+			console.error("Vue Devtools failed to install:", e.toString());
+		}
 		mainWindow.webContents.openDevTools();
-		// require("devtron").install(); // TypeError: electron.BrowserWindow.addDevToolsExtension is not a function
-		// require("vue-devtools").install(); // not supported yet
 	}
 };
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", () => createWindow());
+app.on("ready", async () => {
+	await createWindow();
+});
 
 // On macOS it's common to re-create a window in the app when the
 // dock icon is clicked and there are no other windows open.
@@ -46,3 +63,4 @@ app.on("window-all-closed", () => process.platform !== "darwin" && app.quit());
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+

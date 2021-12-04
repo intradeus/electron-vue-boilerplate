@@ -1,10 +1,11 @@
 "use strict";
 
 module.exports = {
+	"root":true,
 	"env": {
 		"browser": true,
 		"es2021": true,
-		'node': true
+		"node": true
 	},
 	"extends": [
 		"eslint:recommended",
@@ -25,6 +26,14 @@ module.exports = {
 			"error",
 			"tab"
 		],
+		"vue/script-indent": [
+			"error",
+			"tab"
+		],
+		"vue/html-indent": [
+			"error",
+			"tab"
+		],
 		"linebreak-style": [
 			"error",
 			process.platform === "win32" ? "windows" : "unix"
@@ -37,5 +46,13 @@ module.exports = {
 			"error",
 			"always"
 		]
-	}
+	},
+	"overrides": [
+		{
+			"files": ["*.vue"],
+			"rules": {
+				"indent": "off"
+			}
+		}
+	]
 };

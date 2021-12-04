@@ -43,7 +43,7 @@ nsis:
 # Linux config
 linux:
   # target file to release. If you want to add more, don't forget to modify .github/workflows/build.yml accordingly
-  target: [deb,AppImage]
+  target: [deb,AppImage,apk]
   icon: "build/electron-app/assets/icon.png"
   # category : https://specifications.freedesktop.org/menu-spec/latest/apa.html#main-category-registry
   category: "Utility"
