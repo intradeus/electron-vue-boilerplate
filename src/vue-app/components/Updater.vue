@@ -45,7 +45,7 @@ export default {
 
 		async function openLink(){
 			console.log("trying to open web browser ...");
-			await ipcRenderer.send("open-url-default-browser", newVersionURL);
+			ipcRenderer.send("open-url-in-default-browser", newVersionURL);
 		}
 
 		return { 

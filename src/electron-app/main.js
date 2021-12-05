@@ -23,9 +23,16 @@ const createWindow = async () => {
 	console.log("Running app version : ", app.getVersion());
 	// Load the index.html of the app.
 
+	// Send to renderer the app version
 	mainWindow.webContents.on("dom-ready", () => {
 		console.log(`Trying to send app version to renderer: ${app.getVersion()}`);
 		mainWindow.webContents.send("app-version", app.getVersion());
+	});
+
+	// Receive an url to open in the default browser
+	ipcMain.on("open-url-in-default-browser", (event, content) =>{
+		console.log("URL received. Opening web browser to ", content);
+		shell.openExternal(content);
 	});
 
 	mainWindow.loadURL(!PRODUCTION_BUILD ? " http://localhost:8080/index.html" : ("file://" + resolve(__dirname, "../vue-app/index.html")));
@@ -62,7 +69,3 @@ app.on("activate", () => BrowserWindow.getAllWindows().length === 0 && createWin
 app.on("window-all-closed", () => process.platform !== "darwin" && app.quit());
 
 
-ipcMain.on("open-url-default-browser", (event, content) =>{
-	console.log("URL received. Opening web browser to ", content);
-	shell.openExternal(content);
-});
